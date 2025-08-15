@@ -2,15 +2,33 @@
   "version": 2,
   "builds": [
     {
+<<<<<<< HEAD
       "src": "vercel_wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.11" }
+=======
+      "src": "manage.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "app/static/**",  // Your static files (CSS, JS, images)
+      "use": "@vercel/static"
+>>>>>>> 6f982ca538ca3172e545f0189ec1c05e607f7306
     }
   ],
   "routes": [
     {
+<<<<<<< HEAD
       "src": "/(.*)",
       "dest": "vercel_wsgi.py"
+=======
+      "src": "/static/(.*)",
+      "dest": "app/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "manage.py"
+>>>>>>> 6f982ca538ca3172e545f0189ec1c05e607f7306
     }
   ]
 }
