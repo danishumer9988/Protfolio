@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-^!&9!-=a+m7ngkf^-ea&g4a(@-o#x=5159bp@bw(dk1=bsu2j9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -124,6 +126,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'app' / 'static',
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Default primary key field type
